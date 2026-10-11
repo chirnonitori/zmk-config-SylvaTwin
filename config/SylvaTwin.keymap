@@ -14,7 +14,7 @@
         compatible = "zmk,combos";
 
         task {
-            bindings = <&kp LG(LCTRL)>;
+            bindings = <&kp LG(TAB)>;
             key-positions = <6 7>;
         };
 
