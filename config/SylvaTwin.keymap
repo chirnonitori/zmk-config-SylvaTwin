@@ -55,7 +55,7 @@
 
         redo {
             bindings = <&kp LC(Z)>;
-            key-positions = <16 19>;
+            key-positions = <11 10>;
         };
 
         prev_click {
@@ -82,6 +82,13 @@
 
             label = "SURASSYU";
         };
+
+        ikooru: ikooru {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>;
+            label = "IKOORU";
+        };
     };
 
     keymap {
@@ -89,10 +96,10 @@
 
         default_layer {
             bindings = <
-&kp ESC        &kp Q     &kp W     &kp E  &kp R                &kp T                              &kp Y        &kp U                &kp I      &kp O           &kp L      &kp LG(D)
-&mt LCTRL TAB  &kp A     &kp S     &kp D  &kp F                &kp G                              &kp H        &kp J                &kp K      &kp P           &kp MINUS  &kp BACKSPACE
-&kp LSHIFT     &kp Z     &kp X     &kp C  &kp V                &kp B        &mkp LCLK  &mkp LCLK  &kp N        &kp M                &kp COMMA  &kp DOT         &kp UP     &kp RSHIFT
-&kp DEL        &kp LGUI  &kp LALT  &none  &kp INTERNATIONAL_5  &lt 1 SPACE  &kp LC(C)  &kp LC(V)  &lt 2 ENTER  &kp INTERNATIONAL_4  &none      &kp LC(LSHIFT)  &kp DOWN   &kp LC(TAB)
+&kp ESC        &kp Q     &kp W     &kp E  &kp R                &kp T                              &kp Y        &kp U                &kp I      &kp O            &kp L      &kp LG(D)
+&mt LCTRL TAB  &kp A     &kp S     &kp D  &kp F                &kp G                              &kp H        &kp J                &kp K      &kp P            &kp MINUS  &kp BACKSPACE
+&kp LSHIFT     &kp Z     &kp X     &kp C  &kp V                &kp B        &mkp LCLK  &mkp LCLK  &kp N        &kp M                &kp COMMA  &kp DOT          &kp UP     &kp RSHIFT
+&kp DEL        &kp LGUI  &kp LALT  &none  &kp INTERNATIONAL_5  &lt 1 SPACE  &kp LC(C)  &kp LC(V)  &lt 2 ENTER  &kp INTERNATIONAL_4  &none      &kp LC(LS(TAB))  &kp DOWN   &kp LC(TAB)
             >;
 
             sensor-bindings = <&inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
@@ -100,7 +107,7 @@
 
         layer_1 {
             bindings = <
-&kp EXCLAMATION  &kp QUESTION  &trans          &kp UP_ARROW    &trans           &kp COLON                               &none                  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS      &kp KP_EQUAL
+&kp EXCLAMATION  &kp QUESTION  &trans          &kp UP_ARROW    &trans           &kp COLON                               &none                  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS      &ikooru
 &trans           &trans        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LEFT_PARENTHESIS                    &kp RIGHT_PARENTHESIS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS     &kp BACKSPACE
 &trans           &trans        &trans          &trans          &trans           &trans                &trans  &trans    &none                  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp ASTERISK  &surassyu
 &trans           &trans        &trans          &trans          &trans           &none                 &none   &hokuden  &kp ENTER              &kp KP_NUMBER_0  &kp COMMA        &kp PERIOD       &none         &none
@@ -111,9 +118,9 @@
 
         layer_2 {
             bindings = <
-&none  &none    &kp F2   &kp F3  &kp F4  &kp F5                           &mkp LCLK  &mkp RCLK  &trans  &trans  &trans  &bt BT_SEL 0
-&none  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                          &mkp MCLK  &trans     &trans  &trans  &trans  &bt BT_SEL 1
-&none  &kp F11  &kp F12  &none   &none   &none    &none           &trans  &trans     &trans     &trans  &trans  &trans  &bt BT_SEL 2
+&none  &none    &kp F2   &kp F3  &kp F4  &kp F5                           &mkp LCLK  &mkp RCLK  &kp F8  &trans  &trans  &bt BT_SEL 0
+&none  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                          &mkp MCLK  &kp F4     &kp F5  &kp F6  &trans  &bt BT_SEL 1
+&none  &kp F11  &kp F12  &none   &none   &none    &none           &trans  &trans     &trans     &kp F2  &kp F3  &trans  &bt BT_SEL 2
 &none  &none    &none    &none   &none   &none    &studio_unlock  &trans  &trans     &trans     &trans  &trans  &trans  &bt BT_SEL 3
             >;
 
